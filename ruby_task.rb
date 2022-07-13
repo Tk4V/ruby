@@ -69,22 +69,12 @@ class Player
   def show_cart
     { nades_sum => nades }
   end
+
+  def buy_nades
+    [He, Flash, MolotovCT, MolotovT, Decoy].each do |klass|
+      buy(klass.new(klass.name))
+    end
+  end
 end
-
-he = He.new('He')
-flash = Flash.new('flash')
-firenadeCT = MolotovCT.new('CTmolotov')
-firenadeT = MolotovT.new('Tmolotov')
-# dec = Decoy.new('decoy')
-# puts Player.new.nades
-player2 = Player.new
-# p player2.balance_checker
-player2.buy(he)
-# p player2.balance_residual
-player2.buy(flash)
-player2.buy(firenadeCT)
-
-# # p player2.nades
-# # p player2.nades_sum
-# player2.buy(flash)
-# # p player2.nades_sum
+p = Player.new
+p.buy_nades
