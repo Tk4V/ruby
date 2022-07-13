@@ -53,12 +53,11 @@ class Player
   end
 
  def balance_checker
- 	if @user_balance < nades_sum
- 		puts "you dont have enough money"
- 	elsif @user_balance > nades_sum
- 		puts "confirmed purschase"	
- 	end	
- 			
+ 	if @user_balance > nades_sum
+ 		puts "confirmed purschase"
+ 	elsif @user_balance < nades_sum 
+ 		abort "don't have enough money"	
+ 	end				
  end	
 
   def buy(nade)
@@ -84,12 +83,13 @@ molotovT = MolotovT.new('molotovT')
 decoy = Decoy.new('decoy')
 puts Player.new.nades
 player2 = Player.new
+puts player2.balance_checker
 player2.buy(he)
 player2.buy(flash)
 # p player2.nades
 # p player2.nades_sum
 player2.buy(flash)
 # p player2.nades_sum
-puts player2.balance_checker
+
 
 
