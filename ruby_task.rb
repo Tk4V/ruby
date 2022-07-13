@@ -53,18 +53,12 @@ class Player
   end
 
  def balance_checker
- 	if @user_balance == 800
- 		puts "you have enough money to buy 2 flashes and molotovT"
- 	elsif
- 		@user_balance == 400 
- 		puts  "you have enough money to buy 2 flashes or 1 he with decoy"
- 	elsif
- 		@user_balance == 200 
- 		puts "you have enough money to buy 1 flash or decoy"
- 	elsif
- 		@user_balance == 50
- 		puts "you have enough money to buy 1 decoy"
- 	end				
+ 	if @user_balance < nades_sum
+ 		puts "you dont have enough money"
+ 	elsif @user_balance > nades_sum
+ 		puts "confirmed purschase"	
+ 	end	
+ 			
  end	
 
   def buy(nade)
