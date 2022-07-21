@@ -1,6 +1,6 @@
 class Player
   def initialize
-    @user_invent_space = 4
+    @user_invent_space = 0
     @nades = []
     @user_balance = 3000
   end
@@ -11,14 +11,11 @@ class Player
 
   def buy(nade)
     @user_invent_space += nade.count
-    if @user_invent_space > 8
-      abort ("you don't have enough space")
-    end  
-    if @user_balance >= nade.price
+    if @user_invent_space > 4
+      p "you don't have enough space"
+    elsif @user_balance >= nade.price
       @nades << nade
       @user_balance -= nade.price
-      puts @user_balance
-      puts show_cart
     else
       puts "don't have enough money"
     end

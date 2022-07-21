@@ -13,6 +13,8 @@ require "./molotov_t"
 
 p = Player.new
 p.buy_nades
+p.buy_nades
+puts p.show_cart
 
 
 
