@@ -9,3 +9,5 @@ class Grenade
     raise 'Not implemented'
   end
 end
+
+

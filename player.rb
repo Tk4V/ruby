@@ -1,7 +1,8 @@
 class Player
   def initialize
+    @user_invent_space = 4
     @nades = []
-    @user_balance = 800
+    @user_balance = 3000
   end
 
   def nades
@@ -9,10 +10,15 @@ class Player
   end
 
   def buy(nade)
+    @user_invent_space += nade.count
+    if @user_invent_space > 8
+      abort ("you don't have enough space")
+    end  
     if @user_balance >= nade.price
       @nades << nade
       @user_balance -= nade.price
       puts @user_balance
+      puts show_cart
     else
       puts "don't have enough money"
     end
@@ -20,6 +26,7 @@ class Player
 
   def nades_sum
     @nades.map(&:price).sum
+    @nades.map(&:count).sum
   end
 
   def show_cart
@@ -27,10 +34,8 @@ class Player
   end
 
   def buy_nades
-    [He, Flash, MolotovCT, MolotovT, Decoy].each do |klass|
+    [He, Flash, MolotovCt, MolotovT, Decoy].each do |klass|
       buy(klass.new(klass.name))
     end
   end
 end
-p = Player.new
-p.buy_nades
